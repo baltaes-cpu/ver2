@@ -1,18 +1,42 @@
+/* Variables de tema */
+:root {
+  --primary: #0056b3;
+  --secondary: #007BFF;
+  --text: #333;
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --border: #dee2e6;
+  --oceanas-blue: #003366;
+  --oceanas-gold: #ffd700;
+}
+
+[data-theme="dark"] {
+  --primary: #1e90ff;
+  --secondary: #0d6efd;
+  --text: #f8f9fa;
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --border: #495057;
+  --oceanas-blue: #002244;
+  --oceanas-gold: #ffed4e;
+}
+
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Roboto', Arial, sans-serif;
-  background: #ffffff;
-  color: #333;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 img { max-width: 100%; height: auto; display: block; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
 
 /* Top bar */
 .header-top {
-  background: #0a3d2e;
-  color: #fff;
+  background: var(--oceanas-blue);
+  color: var(--text);
   padding: 10px 0;
   font-size: 14px;
 }
@@ -33,13 +57,13 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 6px;
   font-size: .95rem;
 }
-.header-top a { color: #cfe9dd; text-decoration: none; }
-.header-top a:hover { color: #fff; }
+.header-top a { color: var(--oceanas-gold); text-decoration: none; }
+.header-top a:hover { color: var(--secondary); }
 
 /* Header main */
 .header-main {
-  background: #fff;
-  border-bottom: 1px solid #dee2e6;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 10;
 }
@@ -65,19 +89,19 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center;
 }
 .nav-menu a {
-  color: #003366;
+  color: var(--oceanas-blue);
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
 }
-.nav-menu a:hover { color: #ffd700; }
+.nav-menu a:hover { color: var(--oceanas-gold); }
 
 /* Menu toggle */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
-  color: #003366;
+  color: var(--oceanas-blue);
   font-size: 1.8rem;
   cursor: pointer;
   z-index: 3000;
@@ -90,7 +114,7 @@ img { max-width: 100%; height: auto; display: block; }
   right: 1rem;
   background: rgba(255,255,255,.18);
   border: none;
-  color: #003366;
+  color: var(--oceanas-blue);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -100,23 +124,25 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 .theme-toggle i { color: inherit; }
 
 /* Main */
 main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
 section {
-  background: #fff;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
   margin-bottom: 2rem;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 h2 {
-  color: #0056b3;
+  color: var(--primary);
   text-align: center;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 2px solid var(--border);
   padding-bottom: .8rem;
 }
 .services-grid {
@@ -125,14 +151,14 @@ h2 {
   grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
 }
 .service-card {
-  background: #fff;
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid #dee2e6;
-  transition: transform .25s ease;
+  border: 1px solid var(--border);
+  transition: transform .25s ease, background 0.3s ease, color 0.3s ease;
 }
 .service-card:hover { transform: translateY(-5px); }
-.service-card h3 { color: #007BFF; margin-bottom: .6rem; }
+.service-card h3 { color: var(--secondary); margin-bottom: .6rem; }
 
 /* WhatsApp */
 .whatsapp-float {
@@ -153,11 +179,12 @@ h2 {
 
 /* Footer */
 footer {
-  background: #0056b3;
+  background: var(--primary);
   color: #fff;
   text-align: center;
   padding: 2rem 0;
   margin-top: 4rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Responsive */
@@ -190,14 +217,15 @@ footer {
     display: none;
     flex-direction: column;
     gap: 15px;
-    background: #fff;
+    background: var(--bg);
     padding: 1.2rem;
     width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 1500;
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border);
   }
   .nav-menu.active { display: flex; }
 }
+
