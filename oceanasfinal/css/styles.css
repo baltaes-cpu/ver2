@@ -377,7 +377,14 @@ footer {
         top: 0.8rem;
         right: 0.8rem;
     }
+    @media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
+}
+
 
 
 
