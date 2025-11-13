@@ -27,7 +27,7 @@ function toggleMenu() {
 window.addEventListener('load', () => {
   // Tema guardado o preferencia del sistema
   const saved = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').dark ? 'light' : 'dark');
+    (window.matchMedia('(prefers-color-scheme: light)').dark ? 'light' : 'dark');
   document.body.setAttribute('data-theme', saved);
 
   const icon = document.querySelector('.theme-toggle i');
@@ -47,6 +47,7 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
 
 
 
