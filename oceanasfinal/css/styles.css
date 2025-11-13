@@ -49,7 +49,8 @@ body {
     background-image: url('img/oceanas22.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* ⚠️ corregido: en móviles background-attachment: fixed da problemas */
+    background-attachment: scroll;
 }
 
 .container {
@@ -190,6 +191,7 @@ body {
     background: rgba(255,255,255,0.1);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .header-top .container {
         flex-direction: column;
@@ -288,7 +290,7 @@ h1 {
 }
 
 .service-card, .course-item {
-    background: var(--light);
+    background: var(--card-bg); /* ⚠️ corregido: antes usaba var(--light) */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -344,49 +346,6 @@ h1 {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    box-shadow: 0 4px 12px rgba(37,211,102,0.4);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 0 rgba(37,211,102,0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 0 10px rgba(37,211,102,0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 0 rgba(37,211,102,0);
-    }
-}
-
-footer {
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-}
-
-@media (max-width: 768px) {
-    .theme-toggle {
-        top: 0.8rem;
-        right: 0.8rem;
-    }
-    @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-}
-
-
-
-
+    box-shadow: 0 4
 
 
