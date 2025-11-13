@@ -11,7 +11,79 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
-  <!-- estilos del banner -->
+  <link rel="stylesheet" href="css/cookies.css">
+</head>
+
+<body data-theme="light">
+  <!-- Botón de tema -->
+  <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- BARRA SUPERIOR -->
+  <header class="header-top">
+    <div class="container">
+      <ul class="contact-info">
+        <li>Avd. Fragoso 6, 6ºB, Vigo</li>
+        <li><a href="mailto:nautica@oceanas.es">nautica@oceanas.es</a></li>
+        <li><a href="tel:+34625516001">+34 625 516 001</a></li>
+        <li>Horario oficina (Lunes a Viernes) 10-17h</li>
+      </ul>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/oceanas.roses" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/oceanas_5/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Header principal -->
+  <header class="header-main">
+    <div class="container">
+      <div class="logo">
+        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
+      </div>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="tarifas.html">Tarifas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <section>
+      <h2>Nuestros Servicios</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <a href="formacion.html"><img src="img/carta6.png" alt="Formación"></a>
+          <h3>Formación Náutica</h3>
+          <p>Cursos de Navegación y radio.</p>
+          <a href="formacion.html" class="btn">Ver cursos</a>
+        </div>
+        <div class="service-card">
+          <a href="tarifas.html"><img src="img/catamaran1.png" alt="Traslados"></a>
+          <h3>Traslados de Embarcaciones</h3>
+          <p>Traslados profesionales por mar.</p>
+          <a href="tarifas.html" class="btn">Consultar tarifas</a>
+        </div>
+        <div class="service-card">
+          <a href="tarifas.html"><img src="img/catamaran2.png" alt="Servicios"></a>
+          <h3>Mantenimiento</h3>
+          <p>Limpieza de cascos, mantenimiento.</p>
+          <a href="tarifas.html" class="btn">Consultar tarifas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
 </head>
   <!-- === AVISO DE COOKIES (RGPD - SIN GOOGLE ANALYTICS) === -->
 <div id="cookie-banner" class="cookie-banner">
@@ -267,11 +339,35 @@
     <p><a href="cookies.html">Política de cookies</a></p>
   </footer>
 
+  <!-- Banner de Cookies -->
+  <div id="cookie-banner" hidden>
+    <div class="cookie-box">
+      <h2>Tu privacidad nos importa</h2>
+      <p>Usamos cookies para mejorar tu experiencia. Configura tus preferencias o acepta todas.</p>
+
+      <div class="cookie-options">
+        <label><input type="checkbox" checked disabled> Necesarias</label>
+        <label><input type="checkbox" id="cookie-analytics"> Estadísticas</label>
+        <label><input type="checkbox" id="cookie-marketing"> Marketing</label>
+      </div>
+
+      <div class="cookie-actions">
+        <button id="cookie-accept-all">Aceptar todas</button>
+        <button id="cookie-reject-all">Rechazar no necesarias</button>
+        <button id="cookie-save">Guardar preferencias</button>
+        <a href="cookies.html">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón fijo para reabrir preferencias -->
+  <button id="cookie-open-preferences" class="cookie-open">⚓ Preferencias de cookies</button>
+
   <!-- Scripts -->
-  <script src="js/scripts.js"></script>
-   <script src="js/theme.js" defer></script>
-
-
+  <script src="js/scripts.js" defer></script>
+  <script src="js/cookies.js" defer></script>
 </body>
 </html>
+
+
 
