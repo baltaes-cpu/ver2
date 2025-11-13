@@ -188,32 +188,8 @@ footer {
 
 /* Responsive */
 @media (max-width:768px) {
-  .header-top .container {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-  .contact-info { flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 0.9rem; }
-  .social-links { justify-content: center; }
-
-  .header-main .container {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: .75rem 1rem;
-  }
-  .logo img { height: 80px; max-width: 200px; }
-
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
   .nav-menu {
-    display: none; /* oculto por defecto */
+    display: none;
     flex-direction: column;
     gap: 15px;
     background: var(--bg);
