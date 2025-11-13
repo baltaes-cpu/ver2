@@ -1,92 +1,61 @@
-// cookies.js - Gestor de consentimiento de cookies
-(function () {
-  const STORAGE_KEY = 'cookieConsentV1';
-  const banner = document.getElementById('cookie-banner');
-  const openBtn = document.getElementById('cookie-open-preferences');
+// === GESTIÓN DE COOKIES (Náutica OCEANAS - estilo propio) ===
+const COOKIE_NAME = 'oceanas_cookies';
 
-  const inputs = {
-    analytics: document.getElementById('cookie-analytics'),
-    marketing: document.getElementById('cookie-marketing'),
-  };
-
-  const buttons = {
-    acceptAll: document.getElementById('cookie-accept-all'),
-    rejectAll: document.getElementById('cookie-reject-all'),
-    save: document.getElementById('cookie-save'),
-  };
-
-  // Recuperar consentimiento guardado
-  function getConsent() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null;
-    } catch {
-      return null;
+// Mostrar banner si no hay consentimiento previo
+window.addEventListener('load', () => {
+    const consent = localStorage.getItem(COOKIE_NAME);
+    if (!consent) {
+        document.getElementById('cookie-banner').style.display = 'block';
     }
-  }
+});
 
-  // Guardar consentimiento
-  function setConsent(consent) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
-  }
-
-  // Mostrar/Ocultar banner
-  function showBanner() { banner.hidden = false; }
-  function hideBanner() { banner.hidden = true; }
-
-  // Aplicar preferencias en la UI
-  function applyUI(consent) {
-    if (!consent) return;
-    inputs.analytics.checked = !!consent.analytics;
-    inputs.marketing.checked = !!consent.marketing;
-  }
-
-  // Cargar scripts diferidos según consentimiento
-  function loadDeferredScripts(consent) {
-    document.querySelectorAll('script[type="text/plain"][data-category]').forEach(script => {
-      const cat = script.getAttribute('data-category');
-      if (consent[cat]) {
-        const s = document.createElement('script');
-        if (script.getAttribute('data-src')) {
-          s.src = script.getAttribute('data-src');
-          s.async = true;
-        } else {
-          s.textContent = script.textContent;
-        }
-        document.head.appendChild(s);
-        script.type = 'text/processed';
-      }
-    });
-  }
-
-  // Acciones de los botones
-  function acceptAll() {
-    const consent = { necessary: true, analytics: true, marketing: true, ts: Date.now() };
-    setConsent(consent);
+// Aceptar todas (en tu caso solo necesarias)
+function acceptCookies() {
+    localStorage.setItem(COOKIE_NAME, JSON.stringify({ necessary: true }));
     hideBanner();
-    loadDeferredScripts(consent);
-  }
+}
 
-  function rejectAll() {
-    const consent = { necessary: true, analytics: false, marketing: false, ts: Date.now() };
-    setConsent(consent);
+// Rechazar (solo necesarias)
+function rejectCookies() {
+    localStorage.setItem(COOKIE_NAME, JSON.stringify({ necessary: true }));
     hideBanner();
-  }
+}
 
-  function save() {
-    const consent = {
-      necessary: true,
-      analytics: inputs.analytics.checked,
-      marketing: inputs.marketing.checked,
-      ts: Date.now()
-    };
-    setConsent(consent);
-    hideBanner();
-    loadDeferredScripts(consent);
-  }
+// Mostrar configuración
+function showCookieSettings() {
+    document.getElementById('cookie-modal').style.display = 'flex';
+}
 
-  // Eventos
-  buttons.acceptAll.addEventListener('click', acceptAll);
-  buttons.rejectAll.addEventListener('click', rejectAll);
-  buttons.save.addEventListener('click', save);
-  openBtn.addEventListener('click', () => {
-    applyUI(getConsent());
+// Cerrar configuración
+function closeCookieModal() {
+    document.getElementById('cookie-modal').style.display = 'none';
+}
+
+// Guardar preferencias (en tu caso solo necesarias)
+function saveCookieSettings() {
+    acceptCookies();
+    closeCookieModal();
+}
+
+// Mostrar política
+function showCookiePolicy() {
+    document.getElementById('cookie-policy-modal').style.display = 'flex';
+}
+
+// Cerrar política
+function closeCookiePolicy() {
+    document.getElementById('cookie-policy-modal').style.display = 'none';
+}
+
+// Ocultar banner
+function hideBanner() {
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Cerrar modales al hacer clic fuera
+window.onclick = function(e) {
+    const modal1 = document.getElementById('cookie-modal');
+    const modal2 = document.getElementById('cookie-policy-modal');
+    if (e.target === modal1) closeCookieModal();
+    if (e.target === modal2) closeCookiePolicy();
+};
