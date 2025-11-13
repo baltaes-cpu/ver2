@@ -438,9 +438,25 @@ footer {
   section {
     padding: 1rem;
   }
+
+    /* Regla general para todas las imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
+/* Ajustes específicos para las imágenes dentro de las tarjetas */
+.service-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* recorta si la proporción no encaja */
 }
+
+
+}
+
 
 
 
