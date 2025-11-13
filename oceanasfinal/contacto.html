@@ -57,8 +57,7 @@
             font-size: 1rem; transition: color 0.3s ease;
         }
         .nav-menu a:hover { color: var(--oceanas-gold); }
-        [data-theme="dark"] .nav-menu a { color: #ffffff; }
-        [data-theme="dark"] .nav-menu a:hover { color: #ffed4e; }
+        
 
        @media (max-width: 768px) {
             .header-top .container { flex-direction: column; gap: 8px; text-align: center; }
@@ -67,11 +66,13 @@
             .header-main .container { flex-direction: column; gap: 15px; text-align: center; position: relative; padding: 1rem; }
             .logo img { height: 70px; }
             .nav-menu {
-                display: none; flex-direction: column; gap: 15px; background: var(--bg);
+                display: flex; flex-direction: column; gap: 15px; background: var(--bg);
                 padding: 1.5rem; width: 100%; position: absolute; top: 100%; left: 0;
                 z-index: 999; border: 1px solid var(--border); box-shadow: var(--shadow);
             }
-           
+           <button class="menu-toggle" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
         main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
         section {
             background: var(--card-bg); padding: 2rem; border-radius: 12px;
