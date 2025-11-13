@@ -1,31 +1,44 @@
-@media (max-width:768px) {
-  .nav-menu { /* collapsed menu base */
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    background: var(--bg);
-    padding: 1.2rem;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1500;
-    border: 1px solid var(--border);
-  }
-  .nav-menu.active { display: flex; }
-
-  /* Dark theme mobile menu */
-  [data-theme="dark"] .nav-menu {
-    background: #000 !important;
-    border-color: #444 !important;
-  }
-  [data-theme="dark"] .nav-menu a {
-    color: #fff !important;
-  }
-  [data-theme="dark"] .nav-menu a:hover {
-    color: var(--oceanas-gold) !important;
+/* ---------- Cambio de tema ---------- */
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  const icon = document.querySelector('.theme-toggle i');
+  if (icon) {
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
   }
 }
 
+function toggleTheme() {
+  const current = document.body.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', next);
+  applyTheme(next);
+}
+
+/* ---------- Menú hamburguesa ---------- */
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  const btn = document.querySelector('.menu-toggle');
+  if (!menu) return;
+  const isActive = menu.classList.toggle('active');
+  if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+}
+
+/* ---------- Inicialización al cargar ---------- */
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'light'; // SIEMPRE claro por defecto
+  applyTheme(savedTheme);
+});
+
+/* ---------- Cerrar menú al hacer clic en un enlace ---------- */
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#navMenu a')) {
+    const menu = document.getElementById('navMenu');
+    const btn = document.querySelector('.menu-toggle');
+    if (menu && menu.classList.contains('active')) {
+      menu.classList.remove('active');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  }
+});
 
 
