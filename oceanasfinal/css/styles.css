@@ -213,7 +213,7 @@ footer {
   }
 
   .nav-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 15px;
     background: var(--bg);
@@ -230,6 +230,7 @@ footer {
             .menu-toggle { display: block; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
   .nav-menu.active { display: flex; }
 }
+
 
 
 
