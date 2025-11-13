@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Náutica OCEANAS - Inicio</title>
 
+  <!-- Fuentes e iconos -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-theme="light">
@@ -16,36 +19,38 @@
     <i class="fas fa-moon"></i>
   </button>
 
-  <!-- BARRA SUPERIOR -->
+  <!-- Barra superior -->
   <header class="header-top">
     <div class="container">
       <ul class="contact-info">
-        <li>Avd. Fragoso 6, 6ºB, Vigo</li>
-        <li><a href="mailto:nautica@oceanas.es">nautica@oceanas.es</a></li>
-        <li><a href="tel:+34625516001">+34 625 516 001</a></li>
-        <li class="Horario oficina">Horario oficina (Lunes a Viernes) 10-17h</li>
+        <li><i class="fas fa-map-marker-alt"></i> Avd. Fragoso 6, 6ºB, Vigo</li>
+        <li><a href="mailto:nautica@oceanas.es"><i class="fas fa-envelope"></i> nautica@oceanas.es</a></li>
+        <li><a href="tel:+34625516001"><i class="fas fa-phone"></i> +34 625 516 001</a></li>
+        <li><i class="fas fa-clock"></i> Horario Oficina: L-V 10:00-17:00h</li>
       </ul>
-
       <ul class="social-links">
-        <li><a href="https://www.facebook.com/oceanas.roses" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="https://www.instagram.com/oceanas_5/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="https://www.facebook.com/oceanas.roses" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/oceanas_5/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank"><i class="fab fa-youtube"></i></a></li>
       </ul>
     </div>
   </header>
 
-  <!-- HEADER PRINCIPAL (igual que en formacion.html) -->
+  <!-- Header principal -->
   <header class="header-main">
     <div class="container">
       <div class="logo">
-        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
+        <!-- Logo más grande -->
+        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS" style="height:100px; max-width:220px;">
       </div>
 
       <nav>
+        <!-- Botón hamburguesa -->
         <button class="menu-toggle" onclick="toggleMenu()" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
           <i class="fas fa-bars"></i>
         </button>
 
+        <!-- Menú -->
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="formacion.html">Formación</a></li>
@@ -56,28 +61,25 @@
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- Contenido principal -->
   <main>
     <section>
       <h2>Nuestros Servicios</h2>
-
       <div class="services-grid">
         <div class="service-card">
-          <a href="formacion.html" class="btn"><img src="img/carta6.png" alt="Formación"></a>
+          <a href="formacion.html"><img src="img/carta6.png" alt="Formación"></a>
           <h3>Formación Náutica</h3>
           <p>Cursos de Navegación y radio.</p>
           <a href="formacion.html" class="btn">Ver cursos</a>
         </div>
-
         <div class="service-card">
-          <a href="tarifas.html" class="btn"><img src="img/catamaran1.png" alt="Traslados"></a>
+          <a href="tarifas.html"><img src="img/catamaran1.png" alt="Traslados"></a>
           <h3>Traslados de Embarcaciones</h3>
           <p>Traslados profesionales por mar.</p>
           <a href="tarifas.html" class="btn">Consultar tarifas</a>
         </div>
-
         <div class="service-card">
-          <a href="tarifas.html" class="btn"><img src="img/catamaran2.png" alt="Servicios"></a>
+          <a href="tarifas.html"><img src="img/catamaran2.png" alt="Servicios"></a>
           <h3>Mantenimiento</h3>
           <p>Limpieza de cascos, mantenimiento.</p>
           <a href="tarifas.html" class="btn">Consultar tarifas</a>
@@ -87,7 +89,7 @@
   </main>
 
   <!-- WhatsApp -->
-  <a href="https://wa.me/34625516001?text=¡Hola!%20Quiero%20información" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <a href="https://wa.me/34625516001?text=¡Hola!%20Quiero%20información" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -98,7 +100,34 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/scripts.js"></script>
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      const icon = document.querySelector('.theme-toggle i');
+      if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
 
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      const btn = document.querySelector('.menu-toggle');
+      if (menu) {
+        menu.classList.toggle('active');
+        btn.setAttribute('aria-expanded', menu.classList.contains('active') ? 'true' : 'false');
+      }
+    }
+
+    // Inicializa tema
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.body.setAttribute('data-theme', saved);
+      const icon = document.querySelector('.theme-toggle i');
+      if (icon) icon.className = saved === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+  </script>
 </body>
 </html>
+
