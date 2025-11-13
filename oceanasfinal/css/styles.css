@@ -361,6 +361,15 @@ footer {
         box-shadow: var(--shadow);
     }
     
+    .services-grid, .course-list {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        
+    }
     .service-card, .course-item {
         width: 100%;
         display: flex;
@@ -386,6 +395,7 @@ footer {
         transform: translateY(-50%);
     }
 }
+
 
 
 
