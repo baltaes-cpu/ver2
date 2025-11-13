@@ -49,8 +49,7 @@ body {
     background-image: url('img/oceanas22.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    /* ⚠️ corregido: en móviles background-attachment: fixed da problemas */
-    background-attachment: scroll;
+    background-attachment: scroll; /* ✅ corregido para móviles */
 }
 
 .container {
@@ -59,6 +58,7 @@ body {
     padding: 0 1rem;
 }
 
+/* --- HEADER --- */
 .header-top {
     background-color: var(--topbar-bg);
     padding: 10px 0;
@@ -191,7 +191,7 @@ body {
     background: rgba(255,255,255,0.1);
 }
 
-/* Responsive */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .header-top .container {
         flex-direction: column;
@@ -255,6 +255,7 @@ body {
     }
 }
 
+/* --- MAIN --- */
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -290,7 +291,7 @@ h1 {
 }
 
 .service-card, .course-item {
-    background: var(--card-bg); /* ⚠️ corregido: antes usaba var(--light) */
+    background: var(--card-bg); /* ✅ corregido */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -312,13 +313,14 @@ h1 {
     font-size: 1.1rem;
 }
 
+/* --- BOTÓN TEMA --- */
 .theme-toggle {
     position: fixed;
     top: 1rem;
     right: 1rem;
     background: rgba(255,255,255,0.2);
     border: none;
-    color: white;
+    color: var(--oceanas-blue); /* ✅ visible en modo claro */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -328,24 +330,22 @@ h1 {
     z-index: 1001;
 }
 
+[data-theme="dark"] .theme-toggle {
+    color: #ffffff; /* ✅ visible en modo oscuro */
+}
+
 .theme-toggle:hover {
     background: rgba(255,255,255,0.3);
     transform: scale(1.1);
 }
 
+/* --- WHATSAPP --- */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: #25D366;
     color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4
+    width:
 
 
