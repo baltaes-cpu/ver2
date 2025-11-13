@@ -361,6 +361,7 @@ footer {
         box-shadow: var(--shadow);
     }
     .services-grid, .course-list {
+        display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
@@ -370,6 +371,7 @@ footer {
        }
     .service-card, .course-list {
         flex-wrap: wrap;
+        display: flex;
         flex-diection: column;
         justify-content: center;
         gap: 8px;
@@ -392,6 +394,7 @@ footer {
         transform: translateY(-50%);
     }
 }
+
 
 
 
