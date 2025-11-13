@@ -190,8 +190,6 @@ body {
     background: rgba(255,255,255,0.1);
 }
 
-
-
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -249,6 +247,20 @@ h1 {
     font-size: 1.1rem;
 }
 
+/* Imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
 .theme-toggle {
     position: fixed;
     top: 1rem;
@@ -290,17 +302,9 @@ h1 {
 }
 
 @keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 0 rgba(37,211,102,0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 0 10px rgba(37,211,102,0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 0 rgba(37,211,102,0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 
 footer {
@@ -311,7 +315,12 @@ footer {
     margin-top: 4rem;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
     .theme-toggle {
         top: 0.8rem;
         right: 0.8rem;
@@ -326,173 +335,7 @@ footer {
     .contact-info {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
-        font-size: 0.85rem;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .header-main .container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        position: relative;
-        padding: 1rem;
-    }
-
-    .logo img {
-        height: 140px;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        gap: 15px;
-        background: var(--bg);
-        padding: 1.5rem;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 999;
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-    }
-    
-    .services-grid, .course-list {
-        width: 90%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-        
-    }
-    .service-card, .course-item {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 8px;
-        text-align: center;
-       }
-    [data-theme="dark"] .nav-menu {
-        background: #1e1e1e !important;
-        border-color: #444 !important;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    /* Correcciones para móviles */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll; /* Evita zoom raro en móviles */
-  }
-
-  .container {
-    width: 100%;
-    padding: 0 0.5rem;
-  }
-
-  .logo img {
-    height: 100px;
-  }
-
-  .services-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .service-card img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  section {
-    padding: 1rem;
-  }
-
-    /* Regla general para todas las imágenes */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Ajustes específicos para las imágenes dentro de las tarjetas */
-.service-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover; /* recorta si la proporción no encaja */
-}
-/* ... aquí va tu CSS actual ... */
-
-/* Correcciones añadidas al final */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.service-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .service-card img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo img {
-    height: 80px;
-  }
-}
-
-
-}
-
-
-
-
-
-
-
-
-
+        gap
 
 
 
