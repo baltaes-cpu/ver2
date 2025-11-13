@@ -352,9 +352,9 @@ footer {
         gap: 15px;
         background: var(--bg);
         padding: 1.5rem;
-        width: 100%;
+        width: 90%;
         position: absolute;
-        top: 100%;
+        top: 90%;
         left: 0;
         z-index: 999;
         border: 1px solid var(--border);
@@ -389,6 +389,7 @@ footer {
         transform: translateY(-50%);
     }
 }
+
 
 
 
