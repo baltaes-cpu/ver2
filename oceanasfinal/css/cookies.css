@@ -1,3 +1,4 @@
+/* Banner de cookies: overlay */
 #cookie-banner {
   position: fixed;
   inset: 0;
@@ -6,6 +7,13 @@
   background: rgba(0,0,0,0.6);
   z-index: 9999;
 }
+
+/* Ocultar el banner cuando está marcado como hidden */
+#cookie-banner[hidden] {
+  display: none !important;
+}
+
+/* Caja del banner */
 .cookie-box {
   background: #fff;
   color: #111;
@@ -13,16 +21,103 @@
   border-radius: 10px;
   max-width: 500px;
   width: 90%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  font-family: 'Roboto', Arial, sans-serif;
 }
-.cookie-options { display: grid; gap: 0.5rem; margin: 1rem 0; }
-.cookie-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.cookie-actions button { padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; }
-#cookie-accept-all { background: #0c7; color: #fff; }
-#cookie-reject-all { background: #e33; color: #fff; }
-#cookie-save { background: #333; color: #fff; }
+
+.cookie-box h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.cookie-box p {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+}
+
+/* Opciones de cookies */
+.cookie-options {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.cookie-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Botones de acción */
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.cookie-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#cookie-accept-all {
+  background: #0c7;
+  color: #fff;
+}
+
+#cookie-reject-all {
+  background: #e33;
+  color: #fff;
+}
+
+#cookie-save {
+  background: #333;
+  color: #fff;
+}
+
+.cookie-actions a {
+  margin-left: auto;
+  align-self: center;
+  color: #06c;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.cookie-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Botón fijo para reabrir preferencias */
 .cookie-open {
-  position: fixed; bottom: 1rem; right: 1rem;
-  background: #444; color: #fff;
-  border: none; border-radius: 999px;
-  padding: 0.5rem 1rem; z-index: 9998;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 9998;
+}
+
+.cookie-open:hover {
+  background: #0099cc;
+}
+
+/* Accesibilidad: reducir animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
