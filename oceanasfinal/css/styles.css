@@ -12,7 +12,7 @@
   --topbar-text: #ffffff;
 }
 
-[data-theme="Light"] {
+[data-theme="dark"] {
   --primary: #1e90ff;
   --secondary: #0d6efd;
   --text: #f8f9fa;
@@ -232,5 +232,6 @@ footer {
   }
   .nav-menu.active { display: flex; }
 }
+
 
 
