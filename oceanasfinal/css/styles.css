@@ -167,7 +167,7 @@ footer {
   .logo img { height: 80px; max-width: 200px; }
 
    .nav-menu {
-    display: none; /* oculto por defecto */
+    display: flex; /* oculto por defecto */
     flex-direction: column;
     gap: 15px;
     background: var(--bg);
@@ -184,4 +184,5 @@ footer {
   .nav-menu.active { display: flex; }
   
 }
+
 
