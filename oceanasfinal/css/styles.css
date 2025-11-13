@@ -239,6 +239,11 @@ body {
         gap: 8px;
         text-align: center;
        }
+    .service-card, .course-list {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+       }
     [data-theme="dark"] .nav-menu {
         background: #1e1e1e !important;
         border-color: #444 !important;
@@ -425,6 +430,7 @@ footer {
             cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(5px); z-index: 1001;
           
 }
+
 
 
 
