@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Náutica OCEANAS - Inicio</title>
+  <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
-  <body>
-    <!-- Botón de cambio de tema dentro del body -->
-  <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+<body>
+  <!-- Botón de cambio de tema -->
+  <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">
     <i class="fas fa-moon"></i>
   </button>
 
@@ -18,15 +21,15 @@
   <header class="header-top">
     <div class="container">
       <ul class="contact-info">
-        <li> Avd. Fragoso 6, 6ºB, Vigo</li>
-        <li><a href="mailto:nautica@oceanas.es"> nautica@oceanas.es</a></li>
-        <li><a href="tel:+34625516001"> +34 625 516 001</a></li>
-        <li> Horario Oficina (Lunes a Viernes) 10:00-17:00h</li>
+        <li>Avd. Fragoso 6, 6ºB, Vigo</li>
+        <li><a href="mailto:nautica@oceanas.es">nautica@oceanas.es</a></li>
+        <li><a href="tel:+34625516001">+34 625 516 001</a></li>
+        <li>Horario Oficina (Lunes a Viernes) 10:00-17:00h</li>
       </ul>
       <ul class="social-links">
-        <li><a href="https://www.facebook.com/oceanas.roses" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="https://www.instagram.com/oceanas_5/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="https://www.facebook.com/oceanas.roses" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/oceanas_5/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
       </ul>
     </div>
   </header>
@@ -38,9 +41,11 @@
         <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
       </div>
       <nav>
-        <button class="menu-toggle" onclick="toggleMenu()">
+        <!-- Botón hamburguesa visible en móviles -->
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
           <i class="fas fa-bars"></i>
         </button>
+        <!-- Menú de navegación -->
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="formacion.html">Formación</a></li>
@@ -49,7 +54,6 @@
         </ul>
       </nav>
     </div>
-    
   </header>
 
   <!-- Contenido principal -->
@@ -79,8 +83,9 @@
     </section>
   </main>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/34625516001?text=¡Hola!%20Quiero%20información" class="whatsapp-float" target="_blank">
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/34625516001?text=¡Hola!%20Quiero%20información" 
+     class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
