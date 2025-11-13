@@ -12,24 +12,6 @@
   --topbar-text: #ffffff;
 }
 
-/* Tema oscuro */
-[data-theme="dark"] {
-  --primary: #1e90ff;
-  --secondary: #0d6efd;
-  --light: #212529;
-  --dark: #f8f9fa;
-  --gray: #adb5bd;
-  --success: #20c997;
-  --border: #495057;
-  --text: #f8f9fa;
-  --bg: #121212;
-  --card-bg: #1e1e1e;
-  --shadow: 0 4px 12px rgba(0,0,0,0.3);
-  --oceanas-blue: #002244;
-  --oceanas-gold: #ffed4e;
-  --topbar-bg: #071f18;
-  --topbar-text: #e0e0e0;
-}
 
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -106,37 +88,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav-menu a:hover { color: var(--oceanas-gold); }
 
-/* Menu toggle */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--oceanas-blue);
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 3000;
-}
-
-/* Theme toggle */
-.theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255,255,255,.18);
-  border: none;
-  color: var(--oceanas-blue);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  z-index: 3500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-.theme-toggle i { color: inherit; }
 
 /* Main */
 main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
@@ -215,15 +166,7 @@ footer {
   }
   .logo img { height: 80px; max-width: 200px; }
 
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .nav-menu {
+   .nav-menu {
     display: none; /* oculto por defecto */
     flex-direction: column;
     gap: 15px;
@@ -239,16 +182,6 @@ footer {
   }
 
   .nav-menu.active { display: flex; }
-
-  /* Menú en tema oscuro → fondo negro y letras blancas */
-  [data-theme="dark"] .nav-menu {
-    background: #000 !important;
-    border-color: #444 !important;
-  }
-  [data-theme="dark"] .nav-menu a {
-    color: #fff !important;
-  }
-  [data-theme="dark"] .nav-menu a:hover {
-    color: var(--oceanas-gold) !important;
-  }
+  
 }
+
