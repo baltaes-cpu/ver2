@@ -360,15 +360,7 @@ footer {
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
     }
-    .services-grid {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        width: 80%
-        gap: 8px;
-        text-align: center;
-       }
+    
     .service-card {
         flex-wrap: wrap;
         display: flex;
@@ -394,6 +386,7 @@ footer {
         transform: translateY(-50%);
     }
 }
+
 
 
 
