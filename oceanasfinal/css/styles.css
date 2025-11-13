@@ -130,7 +130,7 @@ body {
 }
 
 .logo img {
-    height: 150px;
+    height: 140px;
     width: auto;
 }
 
@@ -254,7 +254,7 @@ body {
 }
 
 main {
-    max-width: 1200px;
+    max-width: 768px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
@@ -379,4 +379,5 @@ footer {
     }
 
 }
+
 
