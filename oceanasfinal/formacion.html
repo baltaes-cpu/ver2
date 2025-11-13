@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación - Náutica OCEANAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0056b3; --secondary: #007BFF; --light: #f8f9fa; --dark: #212529;
+            --gray: #6c757d; --success: #28a745; --border: #dee2e6; --text: #333;
+            --bg: #ffffff; --card-bg: #ffffff; --shadow: 0 4px 8px rgba(0,0,0,0.05);
+            --oceanas-blue: #003366; --oceanas-gold: #ffd700;
+            --topbar-bg: #0a3d2e; --topbar-text: #ffffff;
+        }
+        [data-theme="dark"] {
+            --primary: #1e90ff; --secondary: #0d6efd; --light: #212529; --dark: #f8f9fa;
+            --gray: #adb5bd; --success: #20c997; --border: #495057; --text: #f8f9fa;
+            --bg: #121212; --card-bg: #1e1e1e; --shadow: 0 4px 12px rgba(0,0,0,0.3);
+            --oceanas-blue: #002244; --oceanas-gold: #ffed4e;
+            --topbar-bg: #071f18; --topbar-text: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text);
+            line-height: 1.6; transition: all 0.3s ease;
+        }
+
+        /* BARRA SUPERIOR */
+        .header-top {
+            background-color: var(--topbar-bg); padding: 10px 0; font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--topbar-text);
+        }
+        .header-top .container {
+            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; padding: 0 1rem;
+        }
+        .contact-info { display: flex; gap: 20px; list-style: none; }
+        .contact-info li { display: flex; align-items: center; gap: 5px; font-size: 0.9rem; }
+        .contact-info a { color: #a8e6cf; text-decoration: none; }
+        .contact-info a:hover { color: #ffffff; text-decoration: underline; }
+        .social-links { display: flex; gap: 12px; list-style: none; }
+        .social-links a { color: #a8e6cf; font-size: 18px; }
+        .social-links a:hover { color: #ffffff; }
+
+        /* HEADER PRINCIPAL */
+        .header-main {
+            background-color: #ffffff; padding: 20px 0; border-bottom: 1px solid var(--border);
+        }
+        [data-theme="dark"] .header-main {
+            background-color: #1e1e1e !important; border-bottom-color: #444 !important;
+        }
+        .header-main .container {
+            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between;
+            align-items: center; padding: 0 1rem;
+        }
+        .logo img { height: 100px; width: auto; }
+        [data-theme="dark"] .logo img { filter: brightness(1.3); }
+        .nav-menu {
+            display: flex; list-style: none; gap: 30px; align-items: center;
+        }
+        .nav-menu a {
+            color: var(--oceanas-blue); text-decoration: none; font-weight: bold;
+            font-size: 1rem; transition: color 0.3s ease;
+        }
+        .nav-menu a:hover { color: var(--oceanas-gold); }
+        [data-theme="dark"] .nav-menu a { color: #ffffff; }
+        [data-theme="dark"] .nav-menu a:hover { color: #ffed4e; }
+
+        .menu-toggle {
+            display: none; background: none; border: none; color: var(--oceanas-blue);
+            font-size: 1.8rem; cursor: pointer; padding: 8px; border-radius: 50%;
+            transition: all 0.3s ease; z-index: 1000;
+        }
+        [data-theme="dark"] .menu-toggle { color: #ffffff; }
+        .menu-toggle:hover { background: rgba(0,0,0,0.1); }
+        [data-theme="dark"] .menu-toggle:hover { background: rgba(255,255,255,0.1); }
+
+        @media (max-width: 768px) {
+            .header-top .container { flex-direction: column; gap: 8px; text-align: center; }
+            .contact-info { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 0.85rem; }
+            .social-links { justify-content: center; }
+            .header-main .container { flex-direction: column; gap: 15px; text-align: center; position: relative; padding: 1rem; }
+            .logo img { height: 70px; }
+            .nav-menu {
+                display: none; flex-direction: column; gap: 15px; background: var(--bg);
+                padding: 1.5rem; width: 100%; position: absolute; top: 100%; left: 0;
+                z-index: 999; border: 1px solid var(--border); box-shadow: var(--shadow);
+            }
+            [data-theme="dark"] .nav-menu { background: #1e1e1e !important; border-color: #444 !important; }
+            .nav-menu.active { display: flex; }
+            .menu-toggle { display: block; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
+        }
+
+        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        section {
+            background: var(--card-bg); padding: 2rem; border-radius: 12px;
+            margin-bottom: 2rem; box-shadow: var(--shadow); border: 1px solid var(--border);
+        }
+        h1, h2 {
+            color: var(--primary); text-align: center; margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border); padding-bottom: 0.8rem;
+        }
+        h1 { font-size: 2.2rem; font-weight: 300; }
+        .course-list {
+            display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .course-item {
+            background: var(--light); padding: 1.5rem; border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease;
+        }
+        .course-item:hover { transform: translateY(-5px); }
+        .course-item h3 { color: var(--secondary); margin-bottom: 0.8rem; }
+        .price { font-weight: bold; color: var(--success); font-size: 1.1rem; }
+
+        .theme-toggle {
+            position: fixed; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2);
+            border: none; color: white; width: 40px; height: 40px; border-radius: 50%;
+            cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(5px); z-index: 1001;
+        }
+        .whatsapp-float {
+            position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 1.8rem; box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+            z-index: 1000; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 10px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+        footer { background: var(--primary); color: white; text-align: center; padding: 2rem 0; margin-top: 4rem; }
+        @media (max-width: 768px) { .theme-toggle { top: 0.8rem; right: 0.8rem; } }
+    </style>
+</head>
+    <!-- === AVISO DE COOKIES (RGPD - SIN GOOGLE ANALYTICS) === -->
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>
+            Utilizamos cookies propias para garantizar el funcionamiento correcto del sitio web. 
+            <a href="#!" onclick="showCookiePolicy()" style="color: #ffd700; text-decoration: underline; cursor: pointer;">Política de Cookies</a>
+        </p>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()" class="cookie-btn cookie-accept">Aceptar</button>
+            <button onclick="rejectCookies()" class="cookie-btn cookie-reject">Rechazar</button>
+            <button onclick="showCookieSettings()" class="cookie-btn cookie-config">Configurar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Configuración -->
+<div id="cookie-modal" class="cookie-modal">
+    <div class="cookie-modal-content">
+        <span class="cookie-close" onclick="closeCookieModal()">&times;</span>
+        <h3>Configuración de Cookies</h3>
+        <p>Elige qué tipo de cookies permites:</p>
+        <label>
+            <input type="checkbox" id="cookie-necessary" checked disabled>
+            Cookies Necesarias <small>(Siempre activas - esenciales para el sitio)</small>
+        </label>
+        <div class="cookie-buttons">
+            <button onclick="saveCookieSettings()" class="cookie-btn cookie-save">Guardar preferencias</button>
+        </div>
+    </div>
+</div>
+
+<!-- Política de Cookies (Modal) -->
+<div id="cookie-policy-modal" class="cookie-modal">
+    <div class="cookie-modal-content">
+        <span class="cookie-close" onclick="closeCookiePolicy()">&times;</span>
+        <h3>Política de Cookies</h3>
+        <p><strong>Náutica OCEANAS</strong> utiliza cookies propias para garantizar el correcto funcionamiento del sitio web.</p>
+        <h4>¿Qué son las cookies?</h4>
+        <p>Las cookies son pequeños archivos que se almacenan en tu navegador para recordar preferencias como el tema oscuro/claro.</p>
+        <h4>Cookies utilizadas</h4>
+        <ul>
+            <li><strong>Necesarias:</strong> Para el funcionamiento básico (ej: tema, menú).</li>
+            <li><strong>No utilizamos cookies de terceros, publicidad ni analíticas.</strong></li>
+        </ul>
+        <h4>¿Cómo gestionarlas?</h4>
+        <p>Puedes aceptar, rechazar o configurar las cookies en cualquier momento desde el banner inferior.</p>
+        <p><small>Última actualización: 10 de noviembre de 2025</small></p>
+    </div>
+</div>
+
+<style>
+    /* === ESTILOS DEL BANNER DE COOKIES === */
+    .cookie-banner {
+        position: fixed; bottom: 0; left: 0; width: 100%; background: #0a3d2e;
+        color: #d0f0c0; padding: 1rem; z-index: 9999; box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+        font-size: 0.9rem; display: none; backdrop-filter: blur(6px); border-top: 1px solid #28a745;
+    }
+    .cookie-content {
+        max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between;
+        align-items: center; flex-wrap: wrap; gap: 1rem; padding: 0 1rem;
+    }
+    .cookie-content p { margin: 0; flex: 1; min-width: 280px; font-weight: 300; }
+    .cookie-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .cookie-btn {
+        padding: 0.6rem 1.2rem; border: none; border-radius: 8px; cursor: pointer;
+        font-size: 0.85rem; font-weight: bold; transition: all 0.3s ease;
+        min-width: 90px;
+    }
+    .cookie-accept { background: #28a745; color: white; }
+    .cookie-reject { background: #dc3545; color: white; }
+    .cookie-config { background: #ffd700; color: #0a3d2e; }
+    .cookie-save { background: var(--primary); color: white; width: 100%; margin-top: 1rem; }
+    .cookie-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+
+    /* Modal genérico */
+    .cookie-modal {
+        display: none; position: fixed; z-index: 10000; left: 0; top: 0;
+        width: 100%; height: 100%; background: rgba(0,0,0,0.75); justify-content: center; align-items: center;
+        padding: 1rem; overflow-y: auto;
+    }
+    .cookie-modal-content {
+        background: var(--card-bg); padding: 2rem; border-radius: 12px; max-width: 600px;
+        width: 100%; position: relative; box-shadow: var(--shadow); border: 1px solid var(--border);
+        color: var(--text);
+    }
+    .cookie-close {
+        position: absolute; top: 12px; right: 18px; font-size: 2rem; cursor: pointer;
+        color: var(--text); opacity: 0.7; font-weight: bold;
+    }
+    .cookie-close:hover { opacity: 1; }
+    .cookie-modal h3 { margin-top: 0; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .cookie-modal label {
+        display: flex; align-items: flex-start; gap: 0.8rem; margin: 1rem 0; font-size: 1rem;
+    }
+    .cookie-modal input[type="checkbox"] {
+        width: 18px; height: 18px; accent-color: #28a745; margin-top: 2px;
+    }
+    .cookie-modal small { color: var(--gray); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+        .cookie-content { flex-direction: column; text-align: center; }
+        .cookie-buttons { justify-content: center; width: 100%; }
+        .cookie-btn { flex: 1; }
+        .cookie-modal-content { padding: 1.5rem; }
+    }
+</style>
+
+<script>
+    // === GESTIÓN DE COOKIES (SIN ANALÍTICAS) ===
+    const COOKIE_NAME = 'oceanas_cookies';
+
+    // Mostrar banner si no hay consentimiento previo
+    window.addEventListener('load', () => {
+        const consent = localStorage.getItem(COOKIE_NAME);
+        if (!consent) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+    });
+
+    // Aceptar todas
+    function acceptCookies() {
+        localStorage.setItem(COOKIE_NAME, JSON.stringify({ necessary: true }));
+        hideBanner();
+    }
+
+    // Rechazar (solo necesarias)
+    function rejectCookies() {
+        localStorage.setItem(COOKIE_NAME, JSON.stringify({ necessary: true }));
+        hideBanner();
+    }
+
+    // Mostrar configuración
+    function showCookieSettings() {
+        document.getElementById('cookie-modal').style.display = 'flex';
+    }
+
+    // Cerrar modal
+    function closeCookieModal() {
+        document.getElementById('cookie-modal').style.display = 'none';
+    }
+
+    // Guardar (solo necesarias)
+    function saveCookieSettings() {
+        acceptCookies();
+        closeCookieModal();
+    }
+
+    // Mostrar política
+    function showCookiePolicy() {
+        document.getElementById('cookie-policy-modal').style.display = 'flex';
+    }
+
+    // Cerrar política
+    function closeCookiePolicy() {
+        document.getElementById('cookie-policy-modal').style.display = 'none';
+    }
+
+    // Ocultar banner
+    function hideBanner() {
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    // Cerrar modales al hacer clic fuera
+    window.onclick = function(e) {
+        const modal1 = document.getElementById('cookie-modal');
+        const modal2 = document.getElementById('cookie-policy-modal');
+        if (e.target === modal1) closeCookieModal();
+        if (e.target === modal2) closeCookiePolicy();
+    };
+</script>
+<body data-theme="light">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="header-top">
+        <div class="container">
+            <ul class="contact-info">
+                <li>Avd. Fragoso 6, 6ºB, Vigo</li>
+                <li><a href="mailto:nautica@oceanas.es">nautica@oceanas.es</a></li>
+                <li><a href="tel:+34625516001">+34 625 516 001</a></li>
+                <li class="Horario oficina">Horario oficina (Lunes a Viernes) 10-17h</li>
+            </ul>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/oceanas.roses" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/oceanas_5/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Header principal -->
+  <header class="header-main">
+    <div class="container">
+      <div class="logo">
+        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
+      </div>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="tarifas.html">Tarifas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+    <!-- CONTENIDO -->
+    <main>
+        <section>
+            <h1>Cursos de Formación Náutica</h1>
+            <p style="text-align:center; margin-bottom:2rem;">Elige tu titulación y navega con seguridad.</p>
+            <div class="course-list">
+                <div class="course-item">
+                    <h3>Licencia de Navegación</h3>
+                    <p>Titulación básica para embarcaciones de hasta 6m y 5 millas.</p>
+                    <p>Teoría (2h) y práctica (4h).</p>
+                    <p class="price">100€</p>
+                </div>
+                <div class="course-item">
+                    <h3>Licencia de Navegación a medida</h3>
+                    <p>Curso individual. Sin esperar a formar grupo.</p>
+                    <p>Teoría (2h) y práctica (4h).</p>
+                    <p class="price">180€</p>
+                </div>
+                <div class="course-item">
+                    <h3>PNB - Patrón Navegación Básica</h3>
+                    <p>Embarcaciones hasta 8m y 5 millas.</p>
+                    <p>Clases semanales (máx. 12 meses) + prácticas (8h)</p>
+                    <p class="price">300€</p>
+                </div>
+                <div class="course-item">
+                    <h3>PER - Patrón Embarcaciones Recreo</h3>
+                    <p>Hasta 15m y 12 millas.</p>
+                    <p>Clases semanales (máx. 12 meses) + prácticas obligatorias (16h).</p>
+                    <p class="price">500€</p>
+                </div>
+                <div class="course-item">
+                    <h3>Ampliación PER a 24m</h3>
+                    <p>Embarcaciones de hasta 24 metros (24h) y navegación Península-Baleares.</p>
+                    <p class="price">250€</p>
+                </div>
+                <div class="course-item">
+                    <h3>Radio Operador Corto Alcance</h3>
+                    <p>Certificación VHF obligatoria para PER.</p>
+                    <p class="price">200€</p>
+                </div>
+                <div class="course-item">
+                    <h3>Habilitación a Vela</h3>
+                    <p>Complemento para navegación a vela.</p>
+                    <p>Válido para todos los títulos</p>
+                    <p class="price">250€</p>
+                </div>    
+                <div class="course-item">
+                    <h3>Clases particulares navegación</h3>
+                    <p>Si cambiaste de barco o hace tiempo que no navegas</p>
+                    <p>Sesiones de refuerzo (atraques, manejo velas, planificación rutas).</p>
+                    <p>Elige número de horas y lugar de navegación.</p>
+                    <p class="price">Consultar precios</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/34625516001?text=¡Hola!%20Quiero%20información%20sobre%20formación" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>© 2025 Náutica OCEANAS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.body.setAttribute('data-theme', saved);
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) icon.className = saved === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
+</body>
+</html>

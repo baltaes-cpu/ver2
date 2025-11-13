@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Náutica OCEANAS - Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Barra superior -->
+  <header class="header-top">
+    <div class="container">
+      <ul class="contact-info">
+        <li><i class="fas fa-map-marker-alt"></i> Avd. Fragoso 6, 6ºB, Vigo</li>
+        <li><a href="mailto:nautica@oceanas.es"><i class="fas fa-envelope"></i> nautica@oceanas.es</a></li>
+        <li><a href="tel:+34625516001"><i class="fas fa-phone"></i> +34 625 516 001</a></li>
+        <li><i class="fas fa-clock"></i> Horario Oficina: L-V 10:00-17:00h</li>
+      </ul>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/oceanas.roses" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/oceanas_5/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/@NauticaOceanas" target="_blank"><i class="fab fa-youtube"></i></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Header principal -->
+  <header class="header-main">
+    <div class="container">
+      <div class="logo">
+        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
+      </div>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="tarifas.html">Tarifas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <section>
+      <h2>Nuestros Servicios</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <a href="formacion.html" class="btn"><img src="img/carta6.png" alt="Formación"></a>
+          <h3>Formación Náutica</h3>
+          <p>Cursos de Navegación y radio.</p>
+          <a href="formacion.html" class="btn">Ver cursos</a>
+        </div>
+        <div class="service-card">
+          <a href="tarifas.html" class="btn"><img src="img/catamaran1.png" alt="Traslados"></a>
+          <h3>Traslados de Embarcaciones</h3>
+          <p>Traslados profesionales por mar.</p>
+          <a href="tarifas.html" class="btn">Consultar tarifas</a>
+        </div>
+        <div class="service-card">
+          <a href="tarifas.html" class="btn"><img src="img/catamaran2.png" alt="Servicios"></a>
+          <h3>Mantenimiento</h3>
+          <p>Limpieza de cascos, mantenimiento.</p>
+          <a href="tarifas.html" class="btn">Consultar tarifas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/34625516001?text=¡Hola!%20Quiero%20información" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Náutica OCEANAS. Todos los derechos reservados.</p>
+    <p><a href="#" onclick="showCookieSettings()">Gestionar cookies</a></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scripts.js"></script>
+</body>
+</html>
