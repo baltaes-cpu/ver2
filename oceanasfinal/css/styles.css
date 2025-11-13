@@ -453,9 +453,38 @@ img {
   border-radius: 8px;
   object-fit: cover; /* recorta si la proporción no encaja */
 }
+/* ... aquí va tu CSS actual ... */
+
+/* Correcciones añadidas al final */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.service-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .service-card img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 80px;
+  }
+}
 
 
 }
+
 
 
 
