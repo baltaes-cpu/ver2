@@ -234,10 +234,10 @@ body {
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
     }
-        .services-grid, .course-list {
-           display: grid;
-           gap: 1.5rem;
-           flex-direction: column;
+    .services-grid, .course-list {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
        }
     [data-theme="dark"] .nav-menu {
         background: #1e1e1e !important;
@@ -425,6 +425,7 @@ footer {
             cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(5px); z-index: 1001;
           
 }
+
 
 
 
