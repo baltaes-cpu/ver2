@@ -213,7 +213,7 @@ footer {
   }
 
   .nav-menu {
-    display: flex;
+    display: none; /* oculto por defecto */
     flex-direction: column;
     gap: 15px;
     background: var(--bg);
@@ -225,14 +225,18 @@ footer {
     z-index: 1500;
     border: 1px solid var(--border);
   }
-  [data-theme="dark"] .nav-menu { background: #1e1e1e !important; border-color: #444 !important; }
-            .nav-menu.active { display: flex; }
-            .menu-toggle { display: block; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
+
   .nav-menu.active { display: flex; }
+
+  /* Menú en tema oscuro → fondo negro y letras blancas */
+  [data-theme="dark"] .nav-menu {
+    background: #000 !important;
+    border-color: #444 !important;
+  }
+  [data-theme="dark"] .nav-menu a {
+    color: #fff !important;
+  }
+  [data-theme="dark"] .nav-menu a:hover {
+    color: var(--oceanas-gold) !important;
+  }
 }
-
-
-
-
-
-
