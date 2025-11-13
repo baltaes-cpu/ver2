@@ -14,7 +14,13 @@
             --oceanas-blue: #002244; --oceanas-gold: #ffd700;
             --topbar-bg: #0a3d2e; --topbar-text: #ffffff;
         }
-       
+        [data-theme="dark"] {
+            --primary: #1e90ff; --secondary: #0d6efd; --light: #212529; --dark: #f8f9fa;
+            --gray: #adb5bd; --success: #20c997; --border: #495057; --text: #f8f9fa;
+            --bg: #121212; --card-bg: #1e1e1e; --shadow: 0 4px 12px rgba(0,0,0,0.3);
+            --oceanas-blue: #002244; --oceanas-gold: #ffed4e;
+            --topbar-bg: #071f18; --topbar-text: #e0e0e0;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text);
@@ -42,12 +48,15 @@
         .header-main {
             background-color: #ffffff; padding: 20px 0; border-bottom: 1px solid var(--border);
         }
-       
+        [data-theme="dark"] .header-main {
+            background-color: #1e1e1e !important; border-bottom-color: #444 !important;
+        }
         .header-main .container {
             max-width: 768px; margin: 0 auto; display: flex; justify-content: space-between;
             align-items: center; padding: 0 1rem;
         }
         .logo img { height: 100px; width: auto; }
+        [data-theme="dark"] .logo img { filter: brightness(1.3); }
         .nav-menu {
             display: flex; list-style: none; gap: 30px; align-items: center;
         }
@@ -55,10 +64,7 @@
             color: var(--oceanas-blue); text-decoration: none; font-weight: bold;
             font-size: 1rem; transition: color 0.3s ease;
         }
-        .nav-menu a:hover { color: var(--oceanas-gold); }
-       
-
-       
+        
 
         @media (max-width: 768px) {
             .header-top .container { flex-direction: column; gap: 8px; text-align: center; }
@@ -67,13 +73,15 @@
             .header-main .container { flex-direction: column; gap: 15px; text-align: center; position: relative; padding: 1rem; }
             .logo img { height: 70px; }
             .nav-menu {
-                display: flex; flex-direction: column; gap: 15px; background: var(--bg);
+                display: none; flex-direction: column; gap: 15px; background: var(--bg);
                 padding: 1.5rem; width: 100%; position: absolute; top: 100%; left: 0;
                 z-index: 999; border: 1px solid var(--border); box-shadow: var(--shadow);
             }
-            <button class="menu-toggle" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
+            
+            .nav-menu.active { display: flex; }
+            .menu-toggle { display: block; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
+        }
+
         main { max-width: 768px; margin: 2rem auto; padding: 0 1rem; }
         section {
             background: var(--card-bg); padding: 2rem; border-radius: 12px;
@@ -95,7 +103,11 @@
         tr:hover { background: rgba(0,0,0,0.03); }
         .price { font-weight: bold; color: var(--success); text-align: right; }
 
-      
+        .theme-toggle {
+            position: fixed; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2);
+            border: none; color: white; width: 40px; height: 40px; border-radius: 50%;
+            cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(5px); z-index: 1001;
+        }
         .whatsapp-float {
             position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white;
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
@@ -175,7 +187,7 @@
         font-size: 0.85rem; font-weight: bold; transition: all 0.3s ease;
         min-width: 90px;
     }
-   .cookie-accept { background: #28a745; color: white; }
+    .cookie-accept { background: #28a745; color: white; }
     .cookie-reject { background: #28a745; color: white; }
     .cookie-config { background: #28a745; color: white; }
     .cookie-save { background: var(--primary); color: white; width: 100%; margin-top: 1rem; }
@@ -277,8 +289,8 @@
         if (e.target === modal2) closeCookiePolicy();
     };
 </script>
-<body data-theme="light">
-    
+   
+
     <!-- BARRA SUPERIOR -->
     <header class="header-top">
         <div class="container">
@@ -303,7 +315,9 @@
         <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
       </div>
       <nav>
-        
+        <button class="menu-toggle" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="formacion.html">Formación</a></li>
@@ -325,7 +339,7 @@
             <h2>Formación Náutica</h2>
             <table>
                 <tr><th>Curso</th><th class="price">Precio</th></tr>
-                <tr><td>Licencia de Navegación (6h)</td><td class="price">120€</td></tr>
+                <tr><td>Licencia de Navegación (6h)</td><td class="price">100€</td></tr>
                 <tr><td>Licencia de Navegación a medida (6h)</td><td class="price">180€</td></tr>
                 <tr><td>PNB (teoría)</td><td class="price">200€</td></tr>
                 <tr><td>PNB (práctica) (8h)</td><td class="price">125€</td></tr>
@@ -337,8 +351,6 @@
                 <tr><td>PER Pack+Radio</td><td class="price">700€</td></tr>
                 <tr><td>PER Superpack (Pack+vela+radio)</td><td class="price">900€</td></tr>
                 <tr><td>Ampliación PER 24m (24h)</td><td class="price">250€</td></tr>
-                <tr><td>PY (teoría)</td><td class="price">470€</td></tr>
-                <tr><td>CY (teoría)</td><td class="price">560€</td></tr>
                 <tr><td>Radio VHF</td><td class="price">200€</td></tr>
                 <tr><td>Habilitación Vela</td><td class="price">250€</td></tr>
                 <tr><td>Clases particulares navegación</td><td class="price">Consultar precios</td></tr>
@@ -347,10 +359,10 @@
             <h2>Mantenimiento</h2>
             <table>
                 <tr><th>Servicio</th><th class="price">Precio</th></tr>
-                <tr><td>Limpieza subacuática casco</td><td class="price">Consultar precios</td></tr>
+                <tr><td>Limpieza subacuática casco</td><td class="price">Desde 80€</td></tr>
                 <tr><td>Mantenimiento barcos <12m (limpieza+encendido)</td><td class="price">250€/mes</td></tr>
                 <tr><td>Mantenimiento barcos >12m (limpieza+encendido)</td><td class="price">325€/mes</td></tr>
-                <tr><td>Recuperación objetos hundidos</td><td class="price">Consultar precios</td></tr>
+                <tr><td>Instalación boyas</td><td class="price">Desde 100€</td></tr>
             </table>
             
             <h2>Traslados</h2>
@@ -370,6 +382,13 @@
         <p>© 2025 Náutica OCEANAS. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
         
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+        );
+    </script>
 </body>
 </html>
