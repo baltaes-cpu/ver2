@@ -17,6 +17,7 @@ function toggleMenu() {
     }
 }
 
+// Al cargar la página, aplicar el tema guardado o el preferido del sistema
 window.addEventListener('load', () => {
     const saved = localStorage.getItem('theme') || 
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -27,3 +28,12 @@ window.addEventListener('load', () => {
         icon.className = saved === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 });
+
+    document.body.setAttribute('data-theme', saved);
+
+    const icon = document.querySelector('.theme-toggle i');
+    if (icon) {
+        icon.className = saved === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+});
+
