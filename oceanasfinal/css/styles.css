@@ -360,19 +360,19 @@ footer {
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
     }
-    .services-grid, .course-list {
+    .services-grid {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
-        widht: 90%
+        width: 90%
         gap: 8px;
         text-align: center;
        }
-    .service-card, .course-list {
+    .service-card {
         flex-wrap: wrap;
         display: flex;
-        flex-diection: column;
+        flex-direction: column;
         justify-content: center;
         gap: 8px;
         text-align: center;
@@ -394,6 +394,7 @@ footer {
         transform: translateY(-50%);
     }
 }
+
 
 
 
