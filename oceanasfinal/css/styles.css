@@ -130,7 +130,7 @@ body {
 }
 
 .logo img {
-    height: 100px;
+    height: 150px;
     width: auto;
 }
 
@@ -377,4 +377,5 @@ footer {
         top: 0.8rem;
         right: 0.8rem;
     }
+
 }
