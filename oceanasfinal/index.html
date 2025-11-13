@@ -40,17 +40,12 @@
   <header class="header-main">
     <div class="container">
       <div class="logo">
-        <!-- Logo más grande -->
-        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS" style="height:100px; max-width:220px;">
+        <img src="img/oceanas22.jpeg" alt="Náutica OCEANAS">
       </div>
-
       <nav>
-        <!-- Botón hamburguesa -->
         <button class="menu-toggle" onclick="toggleMenu()" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
           <i class="fas fa-bars"></i>
         </button>
-
-        <!-- Menú -->
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="formacion.html">Formación</a></li>
@@ -100,34 +95,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      const icon = document.querySelector('.theme-toggle i');
-      if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
-
-    function toggleMenu() {
-      const menu = document.getElementById('navMenu');
-      const btn = document.querySelector('.menu-toggle');
-      if (menu) {
-        menu.classList.toggle('active');
-        btn.setAttribute('aria-expanded', menu.classList.contains('active') ? 'true' : 'false');
-      }
-    }
-
-    // Inicializa tema
-    window.addEventListener('load', () => {
-      const saved = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.body.setAttribute('data-theme', saved);
-      const icon = document.querySelector('.theme-toggle i');
-      if (icon) icon.className = saved === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    });
-  </script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
-
