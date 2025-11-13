@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
   }
 });
 
-/* ---------- Opcional: cerrar menú al hacer clic en un enlace ---------- */
+/* ---------- Cerrar menú al hacer clic en un enlace ---------- */
 document.addEventListener('click', (e) => {
   if (e.target.closest('#navMenu a')) {
     const menu = document.getElementById('navMenu');
