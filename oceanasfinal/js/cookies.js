@@ -1,3 +1,4 @@
+// cookies.js - Gestor de consentimiento de cookies
 (function () {
   const STORAGE_KEY = 'cookieConsentV1';
   const banner = document.getElementById('cookie-banner');
@@ -14,16 +15,33 @@
     save: document.getElementById('cookie-save'),
   };
 
+  // Recuperar consentimiento guardado
   function getConsent() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null;
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null;
+    } catch {
+      return null;
+    }
   }
+
+  // Guardar consentimiento
   function setConsent(consent) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
   }
+
+  // Mostrar/Ocultar banner
   function showBanner() { banner.hidden = false; }
   function hideBanner() { banner.hidden = true; }
 
-  function loadScripts(consent) {
+  // Aplicar preferencias en la UI
+  function applyUI(consent) {
+    if (!consent) return;
+    inputs.analytics.checked = !!consent.analytics;
+    inputs.marketing.checked = !!consent.marketing;
+  }
+
+  // Cargar scripts diferidos según consentimiento
+  function loadDeferredScripts(consent) {
     document.querySelectorAll('script[type="text/plain"][data-category]').forEach(script => {
       const cat = script.getAttribute('data-category');
       if (consent[cat]) {
@@ -40,28 +58,35 @@
     });
   }
 
+  // Acciones de los botones
   function acceptAll() {
-    const consent = { necessary: true, analytics: true, marketing: true };
-    setConsent(consent); hideBanner(); loadScripts(consent);
+    const consent = { necessary: true, analytics: true, marketing: true, ts: Date.now() };
+    setConsent(consent);
+    hideBanner();
+    loadDeferredScripts(consent);
   }
+
   function rejectAll() {
-    const consent = { necessary: true, analytics: false, marketing: false };
-    setConsent(consent); hideBanner();
+    const consent = { necessary: true, analytics: false, marketing: false, ts: Date.now() };
+    setConsent(consent);
+    hideBanner();
   }
+
   function save() {
     const consent = {
       necessary: true,
       analytics: inputs.analytics.checked,
-      marketing: inputs.marketing.checked
+      marketing: inputs.marketing.checked,
+      ts: Date.now()
     };
-    setConsent(consent); hideBanner(); loadScripts(consent);
+    setConsent(consent);
+    hideBanner();
+    loadDeferredScripts(consent);
   }
 
+  // Eventos
   buttons.acceptAll.addEventListener('click', acceptAll);
   buttons.rejectAll.addEventListener('click', rejectAll);
   buttons.save.addEventListener('click', save);
-  openBtn.addEventListener('click', () => showBanner());
-
-  const existing = getConsent();
-  if (!existing) showBanner(); else loadScripts(existing);
-})();
+  openBtn.addEventListener('click', () => {
+    applyUI(getConsent());
