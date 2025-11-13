@@ -8,6 +8,8 @@
   --border: #dee2e6;
   --oceanas-blue: #003366;
   --oceanas-gold: #ffd700;
+  --topbar-bg: #0a3d2e;
+  --topbar-text: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -19,6 +21,8 @@
   --border: #495057;
   --oceanas-blue: #002244;
   --oceanas-gold: #ffed4e;
+  --topbar-bg: #071f18;
+  --topbar-text: #e0e0e0;
 }
 
 /* Reset */
@@ -35,8 +39,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Top bar */
 .header-top {
-  background: var(--oceanas-blue);
-  color: var(--text);
+  background: var(--topbar-bg);
+  color: var(--topbar-text);
   padding: 10px 0;
   font-size: 14px;
 }
@@ -57,8 +61,8 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 6px;
   font-size: .95rem;
 }
-.header-top a { color: var(--oceanas-gold); text-decoration: none; }
-.header-top a:hover { color: var(--secondary); }
+.header-top a { color: #cfe9dd; text-decoration: none; }
+.header-top a:hover { color: #ffffff; }
 
 /* Header main */
 .header-main {
@@ -228,4 +232,5 @@ footer {
   }
   .nav-menu.active { display: flex; }
 }
+
 
