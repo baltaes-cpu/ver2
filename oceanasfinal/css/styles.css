@@ -352,9 +352,9 @@ footer {
         gap: 15px;
         background: var(--bg);
         padding: 1.5rem;
-        width: 90%;
+        width: 100%;
         position: absolute;
-        top: 90%;
+        top: 100%;
         left: 0;
         z-index: 999;
         border: 1px solid var(--border);
@@ -362,12 +362,15 @@ footer {
     }
     .services-grid, .course-list {
         flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
+        widht: 90%
         gap: 8px;
         text-align: center;
        }
     .service-card, .course-list {
         flex-wrap: wrap;
+        flex-diection: column;
         justify-content: center;
         gap: 8px;
         text-align: center;
@@ -389,6 +392,7 @@ footer {
         transform: translateY(-50%);
     }
 }
+
 
 
 
